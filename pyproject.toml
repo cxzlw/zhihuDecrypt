@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cdyccdecrypt"
+version = "0.1.0"
+description = ""
+authors = ["cxzlw <wsc_zds@qq.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+httpx = "^0.24.0"
+beautifulsoup4 = "^4.12.2"
+html5lib = "^1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
