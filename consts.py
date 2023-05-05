@@ -1,6 +1,11 @@
-charset = "一上不业个中为也了于人他以会作出分到化发可和国在地大学实对就工年成我方时是有来现理生用的能行要过这进"
+import os
 
-dicts = {
-    "50_1": "和地成了生业会可为人分化现一到我理也的来有发过方就要个作实时在上出中对国他以行这不大是年学进工能于用",
-    "50_2": "在作生不用个地于方到就能分为中他业会进的大学可时以国上了要现对工也人这过成和年理来有行发出是我实一化"
-}
+dicts = {}
+
+for filename in os.listdir("dicts"):
+    if filename == "charset.txt":
+        with open("dicts/" + filename, "r") as f:
+            charset = f.read()
+        continue
+    with open("dicts/" + filename, "r") as f:
+        dicts[filename.rstrip(".txt")] = f.read()
