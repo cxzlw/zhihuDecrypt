@@ -13,11 +13,20 @@ def get_cdycc(passage_id: int):
 
 
 def decrypt(passage_content: str, encrypt_method: str):
+    if encrypt_method == "none":
+        return passage_content
     return passage_content.translate(str.maketrans(consts.charset, consts.dicts[encrypt_method]))
 
 
 def detect_encrypt_method(passage_content: str):
-    pass
+    methods = dict()
+    for method in consts.words:
+        methods[method] = 0
+        for word in consts.words[method]:
+            if word in passage_content:
+                methods[method] += 1
+    return max(methods, key=lambda x: methods[x])
 
 
-print(decrypt(get_cdycc(5846), "50_1"))
+c = get_cdycc(5862)
+print(decrypt(c, detect_encrypt_method(c)))
