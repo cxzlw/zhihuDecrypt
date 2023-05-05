@@ -24,9 +24,11 @@ def detect_encrypt_method(passage_content: str):
         methods[method] = 0
         for word in consts.words[method]:
             if word in passage_content:
-                methods[method] += 1
+                methods[method] += consts.words[method][word]
     return max(methods, key=lambda x: methods[x])
 
 
-c = get_cdycc(5862)
-print(decrypt(c, detect_encrypt_method(c)))
+if __name__ == '__main__':
+    c = get_cdycc(5899)
+    print("got")
+    print(decrypt(c, detect_encrypt_method(c)))
