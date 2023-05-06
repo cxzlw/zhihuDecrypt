@@ -19,14 +19,19 @@ def decrypt(passage_content: str, encrypt_method: str):
     return passage_content.translate(str.maketrans(consts.charset, consts.dicts[encrypt_method]))
 
 
-def detect_encrypt_method(passage_content: str):
+def detect_encrypt_method_with_probability(passage_content: str):
     methods = dict()
     for method in consts.words:
         methods[method] = 0
         for word in consts.words[method]:
             if word in passage_content:
                 methods[method] += consts.words[method][word]
-    # for method, v in methods.items():
-    #     s = sum(methods.values())
-    #     print(method, v/s*100, "%")
+    sum_num = sum(methods.values())
+    for method in methods:
+        methods[method] /= sum_num
+    return methods
+
+
+def detect_encrypt_method(passage_content: str):
+    methods = detect_encrypt_method_with_probability(passage_content)
     return max(methods, key=lambda x: methods[x])

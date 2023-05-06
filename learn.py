@@ -15,11 +15,12 @@ def in_charset(word: str):
 with open("words.txt", "r") as f:
     words = dict((x.split(" ")[0], int(x.split(" ")[1])) for x in f.read().rstrip("\n").split("\n") if in_charset(x))
 
+
 # print(words)
 
-for x in range(1007, 4896):
+def learn_from_id(pid: int, encrypt_method: str = "none"):
     try:
-        p = utils.get_cdycc(x)
+        p = utils.get_cdycc(pid)
 
         for block in jieba.cut(p):
             if in_charset(block):
@@ -28,7 +29,11 @@ for x in range(1007, 4896):
                 words[block] += 1
         with open("words.txt", "w") as f:
             f.writelines(f"{x} {y}\n" for x, y in words.items())
-        print(x)
+        # print(pid)
     except Exception as e:
         print(e)
         time.sleep(5)
+
+
+if __name__ == '__main__':
+    learn_from_id(5929, "none")
