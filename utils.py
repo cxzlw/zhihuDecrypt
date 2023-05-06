@@ -26,4 +26,7 @@ def detect_encrypt_method(passage_content: str):
         for word in consts.words[method]:
             if word in passage_content:
                 methods[method] += consts.words[method][word]
+    # for method, v in methods.items():
+    #     s = sum(methods.values())
+    #     print(method, v/s*100, "%")
     return max(methods, key=lambda x: methods[x])
