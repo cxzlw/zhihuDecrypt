@@ -17,7 +17,7 @@ with open("words.txt", "r") as f:
 
 # print(words)
 
-for x in range(482, 4896):
+for x in range(1007, 4896):
     try:
         p = utils.get_cdycc(x)
 
