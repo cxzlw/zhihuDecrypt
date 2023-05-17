@@ -1,5 +1,5 @@
 import httpx
-import consts
+from . import consts
 
 from bs4 import BeautifulSoup
 

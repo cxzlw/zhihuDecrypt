@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 
 if __name__ == '__main__':
     c = get_cdycc(5396)

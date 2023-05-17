@@ -1,8 +1,11 @@
+import os
 import time
 import consts
 import jieba
 
-import utils
+from . import utils
+
+path = os.path.dirname(__file__)
 
 
 def in_charset(word: str):
@@ -12,7 +15,7 @@ def in_charset(word: str):
     return False
 
 
-with open("words.txt", "r") as f:
+with open(path+"/words.txt", "r") as f:
     words = dict((x.split(" ")[0], int(x.split(" ")[1])) for x in f.read().rstrip("\n").split("\n") if in_charset(x))
 
 
@@ -27,7 +30,7 @@ def learn_from_id(pid: int, encrypt_method: str = "none"):
                 if block not in words:
                     words[block] = 0
                 words[block] += 1
-        with open("words.txt", "w") as f:
+        with open(path+"/words.txt", "w") as f:
             f.writelines(f"{x} {y}\n" for x, y in words.items())
         # print(pid)
     except Exception as e:

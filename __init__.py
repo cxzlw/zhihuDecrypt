@@ -1,1 +1,1 @@
-from utils import get_cdycc, decrypt, detect_encrypt_method_with_probability, detect_encrypt_method
+from .utils import get_cdycc, decrypt, detect_encrypt_method_probability, detect_encrypt_method
