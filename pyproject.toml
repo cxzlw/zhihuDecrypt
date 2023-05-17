@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cdyccdecrypt"
+name = "zhihudecrypt"
 version = "0.1.0"
 description = ""
 authors = ["cxzlw <wsc_zds@qq.com>"]
