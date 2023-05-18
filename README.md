@@ -20,6 +20,68 @@
 2. `import zhihudecrypt`
 3. 参考[zhihuDecryptApp](https://github.com/cxzlw/zhihuDecryptApp)
 
+## words.txt 的来源
+
+通过以下代码，注意通过`learn_from_pid()`收集的文章越多越好
+
+若传入的`id`指向了一篇乱码文章，注意传入对应的解密方法，或者只传入正常文章
+
+```python
+import os
+import time
+import consts
+import jieba
+import httpx
+
+from bs4 import BeautifulSoup
+
+path = os.path.dirname(__file__)
+
+
+def get_cdycc(passage_id: int):
+    html = httpx.get(f"https://cdycc.cn/?id={passage_id}")
+    soup = BeautifulSoup(html, "html5lib")
+    selected = soup.select(
+        "body > div.wrapper > div.main.fixed > div.wrap > div.content > div:nth-child(1) > div.post > "
+        "div.single.postcon > div.readall-body > p")
+    return "\n".join(x.text for x in selected[2:-3])
+
+
+def in_charset(word: str):
+    for char in consts.charset:
+        if char in word:
+            return True
+    return False
+
+
+with open(path + "/words.txt", "r") as f:
+    words = dict((x.split(" ")[0], int(x.split(" ")[1])) for x in f.read().rstrip("\n").split("\n") if in_charset(x))
+
+
+# print(words)
+
+def learn_from_id(pid: int, encrypt_method: str = "none"):
+    try:
+        p = get_cdycc(pid)
+
+        for block in jieba.cut(p):
+            if in_charset(block):
+                if block not in words:
+                    words[block] = 0
+                words[block] += 1
+        with open(path + "/words.txt", "w") as f:
+            f.writelines(f"{x} {y}\n" for x, y in words.items())
+        # print(pid)
+    except Exception as e:
+        print(e)
+        time.sleep(5)
+
+
+if __name__ == '__main__':
+    learn_from_id(5929, "none")
+```
+
+
 ## 推荐网站
 
 ### 不对该网站内容负责，请自行评估

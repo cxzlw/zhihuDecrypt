@@ -7,10 +7,6 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-httpx = "^0.24.0"
-beautifulsoup4 = "^4.12.2"
-html5lib = "^1.1"
-jieba = "^0.42.1"
 
 
 [build-system]
