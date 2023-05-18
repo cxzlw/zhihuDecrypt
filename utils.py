@@ -27,6 +27,9 @@ def detect_encrypt_method_probability(passage_content: str):
             if word in passage_content:
                 methods[method] += consts.words[method][word]
     sum_num = sum(methods.values())
+    if sum_num == 0:
+        methods["none"] = 1
+        sum_num = 1
     for method in methods:
         methods[method] /= sum_num
     return methods
