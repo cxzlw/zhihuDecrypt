@@ -36,5 +36,5 @@ def detect_encrypt_method_probability(passage_content: str):
 
 
 def detect_encrypt_method(passage_content: str):
-    methods = detect_encrypt_method_probability(passage_content)
-    return max(methods, key=lambda x: methods[x])
+    probabilities = detect_encrypt_method_probability(passage_content)
+    return max(probabilities, key=lambda x: probabilities[x])
