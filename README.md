@@ -16,9 +16,9 @@
 
 ## 用法
 
-1. `git submodule add https://github.com/cxzlw/zhihuDecrypt`
-2. `import zhihuDecrypt`
-3. 参考 `example.py`
+1. `poetry add git+https://github.com/cxzlw/zhihuDecrypt`
+2. `import zhihudecrypt`
+3. 参考[zhihuDecryptApp](https://github.com/cxzlw/zhihuDecryptApp)
 
 ## 推荐网站
 
