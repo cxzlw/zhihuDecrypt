@@ -1,6 +1,16 @@
+# 本项目不保证后续开发
+
+鉴于
+[C的云存储](http://mp.weixin.qq.com/profile?src=3&timestamp=1685724428&ver=1&signature=7aX47yuLgfUkD8Svf3OTJIfL1kDRq1T2R-7kv3utqF0hFsn49dRHWMbAs-P4K2VES5TXJ1PmIEL3n4nvxMjNVw==)
+[遭到了恶意举报](https://mp.weixin.qq.com/s?src=11&timestamp=1685724428&ver=4566&signature=sHBp-x1jHGRp79o*-vZYNn56PYe1uaBbjkzWRW7WQHfaDSnzeT5xawzylKxkJ3kLwT1NmytwamWhg7Yo2JooeHmZyYvKUumC9I13igv2v9QHK8kajXH3zA4QtRbF0d7A&new=1)
+(这年头为爱发电真tm难md)
+而且几乎没人用本项目，我们将随时考虑无限期放弃该项目的后续开发（当然欢迎接手awa）
+
+如果有人在用这个项目，或者愿意加入开发，欢迎告诉我们 :)
+
 # zhihuDecrypt
 
-## 欢迎你, 可以给我一颗星星吗? 
+## 欢迎你, 可以给我一颗星星吗?
 
 用于识别与解密部分文章的Python包
 
@@ -80,7 +90,6 @@ def learn_from_id(pid: int, encrypt_method: str = "none"):
 if __name__ == '__main__':
     learn_from_id(5929, "none")
 ```
-
 
 ## 推荐网站
 

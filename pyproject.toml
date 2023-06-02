@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zhihudecrypt"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["cxzlw <wsc_zds@qq.com>"]
 readme = "README.md"
