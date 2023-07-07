@@ -24,6 +24,12 @@
 4. 大部分代码没写注释，我懒 :(
 5. 本项目在GPLv3下授权，欢迎各位在遵循许可的情况下继续开发
 
+## 原理
+
+### 字体来源
+
+见此[聊聊知乎盐选反爬 (回答页篇) - 创新者.老王的博客](https://blog.cxzlw.top/2023/07/05/zhihu-aac-old/)
+
 ## 用法
 
 1. `poetry add git+https://github.com/cxzlw/zhihuDecrypt`
@@ -96,4 +102,4 @@ if __name__ == '__main__':
 ### 不对该网站内容负责，请自行评估
 
 [C的云存储](https://cdycc.cn/)
-
+[创新者.老王的博客](https://blog.cxzlw.top/)
